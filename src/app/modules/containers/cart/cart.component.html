@@ -1,0 +1,28 @@
+<h1>Cart</h1>
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Value (US$)</th>
+        <th>Amount in Stock</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}}</td>
+            <td>{{product.value | currency: 'USD'}}</td>
+            <td>{{product.amount}}</td>
+            <td>
+                <button (click)="add(product)">+</button>
+                <button (click)="remove(product)">-</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <label for="total">
+        Total
+    </label>
+
+</div>
+
+<button (click)="checkout()">Checkout!</button>

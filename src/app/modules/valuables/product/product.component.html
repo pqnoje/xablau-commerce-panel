@@ -1,0 +1,12 @@
+<ng-container *ngIf="product">
+    <h1>Product</h1>
+    <ul>
+        <li>
+            <img [src]="product.image"/>
+        </li>
+        <li>{{product.name}}</li>
+        <li>{{product.value | currency: 'USD'}}</li>
+        <li>{{product.amount}} unit remaining</li>
+    </ul>
+    <button (click)="buy()" [disabled]="product.amount === 0">Buy!</button>
+</ng-container>

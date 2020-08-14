@@ -1,0 +1,70 @@
+<h1>Telzir Promotions</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <fieldset>
+        <legend>Call Details</legend>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <label for="originArea">Select Local DDD</label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <select formControlName="originArea">
+                    <option [ngValue]="null" disabled>Select Code</option>
+                    <option *ngFor="let area of areas" [ngValue]="area">0{{area.code}}</option>
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <label for="distArea">Select Destiny DDD</label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <select formControlName="distArea">
+                    <option [ngValue]="null" disabled>Select Code</option>
+                    <option *ngFor="let area of areas" [ngValue]="area">0{{area.code}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <label for="duration">Duration</label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <input type="number" formControlName="duration" />
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Fale Mais</legend>
+        <label for="promotion">Promotions</label>
+        <ul>
+            <ng-container *ngFor="let product of products">
+                <li>
+                    <input type="radio" [value]="product" formControlName="promotion">
+                    <label>{{product.name}}</label>
+                </li>
+            </ng-container>
+        </ul>
+    </fieldset>
+
+    <button type="submit">Get Prices</button>
+</form>
+
+<table *ngIf="calcResults.length">
+    <thead>
+        <th>Origin</th>
+        <th>Dist</th>
+        <th>Duration</th>
+        <th>Promotion</th>
+        <th>With Promotion</th>
+        <th>Without Promotion</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let result of calcResults">
+            <td>0{{result.originArea.code}}</td>
+            <td>0{{result.distArea.code}}</td>
+            <td>{{result.duration}} minutes</td>
+            <td>{{result.promotion.name}}</td>
+            <td>{{result.promotionValue | currency: 'USD'}}</td>
+            <td>{{result.normalValue | currency: 'USD'}}</td>
+        </tr>
+    </tbody>
+</table>

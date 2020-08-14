@@ -1,0 +1,4 @@
+<h3>Shelf</h3>
+<ng-container *ngFor="let shelf of shelfs">
+    <app-product *ngFor="let product of shelf.products" [productId]="product"></app-product>
+</ng-container>
