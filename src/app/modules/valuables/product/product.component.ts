@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
     debugger
     if(this.productId){
       debugger
-      this.productService.getProduct(this.productId)
+      this.productService.get(this.productId)
       .subscribe(product => {
         debugger
         this.product = product

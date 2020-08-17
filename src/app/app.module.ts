@@ -9,7 +9,6 @@ import { ContainersModule } from './modules/containers/containers.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ValuablesModule } from './modules/valuables/valuables.module';
 import { InstitutionalModule } from './modules/institutional/institutional.module'
-import { TelzirModule } from './modules/telzir/telzir.module'
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +25,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthModule,
     ContainersModule,
     ValuablesModule,
-    TelzirModule,
     InstitutionalModule,
     BrowserAnimationsModule
   ],

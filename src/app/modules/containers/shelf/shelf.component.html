@@ -1,4 +1,14 @@
 <h3>Shelf</h3>
-<ng-container *ngFor="let shelf of shelfs">
-    <app-product *ngFor="let product of shelf.products" [productId]="product"></app-product>
-</ng-container>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <fieldset>
+    <legend>Call Details</legend>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name">
+      </div>
+    </div>
+    <button class="button" type="submit" [disabled]="!form.valid">Create</button>
+  </fieldset>
+</form>

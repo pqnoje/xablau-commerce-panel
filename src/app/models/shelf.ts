@@ -2,7 +2,7 @@ import { Product } from './product'
 
 export class Shelf {
     public products: Array<Product>
-    public category: number
+    public name: number
 
     constructor(){
         this.products = new Array<Product>()

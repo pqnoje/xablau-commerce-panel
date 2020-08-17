@@ -7,6 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { ValuablesModule } from '../valuables/valuables.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { ValuablesModule } from '../valuables/valuables.module';
   imports: [
     CommonModule,
     ContainersRoutingModule,
-    ValuablesModule
+    ValuablesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ShelfComponent,
